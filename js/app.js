@@ -82,8 +82,7 @@ function checkLetter(button) {
       event.target.setAttribute("disabled", true);
       const letterFound = checkLetter(event.target);
       if (! letterFound) {
-        const tries = document.querySelectorAll(".tries");
-        tries[missed].style.display = "none";
+        heartLives[missed].setAttribute("src", "images/lostHeart.jpg");
         missed++;
       }
       if (event.target) {
@@ -128,4 +127,9 @@ function checkLetter(button) {
         tries[i].style.display = "inline";
       }
       missed = 0;
+      if (gameReset) {
+        for (let i = 0; i < heartLives.length; i++) {
+        heartLives[i].setAttribute("src", "images/liveHeart.jpg");
+        }
+      }
   }
